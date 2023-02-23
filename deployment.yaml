@@ -17,6 +17,6 @@ spec:
   spec:
    containers:
     - name: e-comm-webapp
-      image: vinod0510/automation-djkt:latest
+      image: aryann3003/nodejs:latest 
       ports:
        - containerPort: 80
