@@ -5,7 +5,7 @@ pipeline {
         stage('Clone Repo') {
             steps {
                 sh 'rm -rf Automation_with_Docker_K8s_Jenkins'
-                sh 'git clone https://github.com/Vinodvarma1999/Automation_with_Docker_K8s_Jenkins.git'
+                sh 'git clone  https://github.com/abhi016/Automation_with_Docker_K8s_Jenkins.git'
             }
         }
          
@@ -25,7 +25,7 @@ pipeline {
 
         stage('Build Image') {
             steps {
-                sh 'docker build -t vinod0510/automation-djkt:latest .'
+                sh 'docker build -t  aryann3003/nodejs:latest .'
             }
         }
 
@@ -35,7 +35,7 @@ pipeline {
                     #!/bin/bash
                     docker stop my_project-1 || true
                     docker rm my_project-1 || true
-                    docker run -d -p 8081:80 --name my_project-1 vinod0510/automation-djkt:latest
+                    docker run -d -p 8081:80 --name my_project-1 aryann3003/nodejs:latest
                 '''
             }
         }
@@ -45,8 +45,8 @@ pipeline {
                 withCredentials([string(credentialsId: 'vinod0510', variable: 'vinod0510')]) {
                     sh '''
                         #!/bin/bash
-                        docker login -u vinod0510 -p ${vinod0510}
-                        docker push vinod0510/automation-djkt:latest
+                        docker login -u aryann3003 -p ${vinod0510}
+                        docker push  aryann3003/nodejs:latest
                     '''
                 }
             }
